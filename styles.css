@@ -1,0 +1,157 @@
+
+/*root selector is the highest level parent element in DOM and also known 
+as structural psuedo class*/
+
+:root{         /*Here used to declare global css variables */                  
+    --bgColor: #101032;
+    --borderColor: #6548c1;
+    --size:5rem;
+    --Xcolor: #ed154f;
+    --Ocolor: #f7cd32;
+}
+
+/* used to select all elements on the page*/
+*{ 
+    margin: 0;
+    padding: 0;
+}
+
+
+body{
+    background-color: var(--bgColor);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center; /*element is positioned in the center*/
+    position: relative;   /*relative to the original position of the element*/
+}
+.container{
+    border-spacing: 0;
+    align-self: center;
+}
+.cell{
+    min-width: 9rem;
+    height: 9rem ;
+    /* padding: cal(9rem*0.175); */
+    border:10px solid var(--borderColor);
+
+}
+.row *:nth-child(2n+1){
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    /* border-bottom: none; */
+}
+.row .cell:nth-child(2){
+    border-top: none;
+}
+.row:last-child .cell{
+    border-bottom: none;
+}
+.cell svg{
+    width: var(--size);
+    height: var(--size);
+    stroke-width: 3px;
+    overflow: visible;
+    padding-left: 30px;
+}
+.X{
+    display: none;
+    stroke: var(--Xcolor);
+    stroke-dasharray: 36 36;
+    stroke-dashoffset: 36;
+    transition: stroke-dashoffset 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+.O{
+    display: none;
+    stroke: var(--Ocolor);
+    stroke-dasharray: 76 76;
+    stroke-dashoffset: 76;
+    transition: stroke-dashoffset 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+.playerSelect{
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    padding: 0.3rem;
+    background-color: var(--bgColor);
+    border: 2px solid var(--borderColor);
+    color: white;
+    font-size: 0.85rem;
+    display: block; 
+    cursor: pointer;
+}
+.scoreCard{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    gap: 0.75rem;
+    top: 1rem;
+    left: 10rem;
+}
+.icon{
+    width: 1.5rem;
+    height: 1rem;
+    padding: 5px;
+    border-right: 2px solid var(--borderColor);
+
+}
+.icon svg{
+    width: 90%;
+    height: 90%;
+    stroke-width: 3px;
+    overflow: visible;
+    display: block;
+    stroke-dasharray: none;
+    stroke-dashoffset: none;
+    transition: none;
+}
+.scoreCard > div{
+    display: flex;
+    flex-direction: row;
+    border: 2px solid var(--borderColor);
+    height: 1.5rem;
+    cursor: pointer;
+}
+.scoreCard > .playerActive{
+    border-bottom-width: 4px;
+}
+.score{
+    display: flex;
+    width: 2rem;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.resetBtn{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1rem;
+    color: white;
+    font-family: sans-serif;
+    border: 2px solid var(--borderColor);
+    padding:6px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.Winner{
+    display: none;
+    position: absolute;
+    bottom: 3rem;
+    color: white;
+    font-size: 2rem;
+    gap: 0.5rem;
+
+}
+.Winner .icon{
+    width: 2.5rem;
+    height: 2.5rem;
+    border-right: none;
+}
+
+
+
+
+
+
